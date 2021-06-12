@@ -4,6 +4,7 @@ import {Card,Button} from 'react-bootstrap/'
 class Recipe extends Component {
     render() {
         return (
+          // here we put item becaucse in previce map put item
             <Card style={{ width: '18rem' }} key ={this.props.idx}>
             <Card.Img variant="top" src={this.props.item.image} />
             <Card.Body>
@@ -16,7 +17,7 @@ class Recipe extends Component {
 
 
 
-              <Button variant="dark" onClick={()=>this.props.addToFav()}>add To Favotaite</Button>
+              <Button variant="dark" onClick={()=>this.props.addToFav(this.props.item)}>add To Favotaite</Button>
             </Card.Body>
           </Card>  
         )

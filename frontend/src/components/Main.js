@@ -11,14 +11,14 @@ class Main extends Component {
         this.state={
             serverLink: process.env.REACT_APP_SERVER,
             showDataRecipe : false,
-            recipes :[]
+            recipes :[] 
         }
     }
 
-//  addToFav=async()=> {
-//     await axios.post(`${this.state.serverLink}/addToFavorite`,recipeData)
+ addToFav=async(recipeData)=> {
+    await axios.post(`http://localhost:3001/addToFav`,recipeData)
   
-// }
+}
     componentDidMount = async () =>{
  const recipes = await axios.get(`http://localhost:3001/recipes?ingredient=chicken`);
    console.log(recipes.data);
@@ -28,6 +28,7 @@ class Main extends Component {
    })
 }
 
+ 
     render() {
         return (
        <>
@@ -40,6 +41,7 @@ class Main extends Component {
                  <Recipe
                  item = {item}
                  key ={idx}
+                 addToFav={this.addToFav}
 
                  />
              )
